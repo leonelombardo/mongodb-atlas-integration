@@ -14,7 +14,7 @@ export const Home = () => {
                     <h1 className="text-primary-500 text-5xl sm:text-7xl text-center font-bold leading-none">MongoDB Atlas Integration</h1>
                     <p className="text-primary-100 text-center text-lg sm:text-2xl font-bold leading-none">Start getting, adding, updating, and deleting users from a MongoDB Atlas database.</p>
                     </section>
-                    <Link to="/" style={{width: "100%"}}>
+                    <Link to="/admin" style={{width: "100%"}}>
                         <Button>Start</Button>
                     </Link>
                 </main>
