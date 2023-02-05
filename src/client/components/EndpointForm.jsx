@@ -7,18 +7,37 @@ export const EndpointForm = ({ type="get", title }) => {
     const formVariants = {
         initial: {
             height: 0,
-            opacity: 0
+            opacity: 0,
+            transition: {
+                height: {
+                    duration: 0.25
+                },
+                opacity: {
+                    duration: 0.35
+                }
+            }
         },
         animate: {
             height: "auto",
-            opacity: 1
+            opacity: 1,
+            transition: {
+                height: {
+                    duration: 0.25
+                },
+                opacity: {
+                    duration: 0.35
+                }
+            }
         },
         exit: {
             height: 0,
             opacity: 0,
             transition: {
+                height: {
+                    duration: 0.25
+                },
                 opacity: {
-                    duration: 0.1
+                    duration: 0.35
                 }
             }
         }
@@ -29,25 +48,25 @@ export const EndpointForm = ({ type="get", title }) => {
         
             {
                 type === "get" && 
-                    <motion.form {...formVariants} className="flex flex-col gap-4">
+                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
                         <Button type="submit" size="sm">{title}</Button>
                     </motion.form>
             }
             {
                 type === "post" && 
-                    <motion.form {...formVariants} className="flex flex-col gap-4">
+                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
                         <Input placeholder="6a398fwar83l4kazn34" label="ID" id="put"/>  
                         <div className="flex flex-col sm:flex-row gap-2">
-                            <Input placeholder="John" label="Name" id="put_name"/>  
-                            <Input placeholder="Doe" label="Surname" id="put_surname"/>  
+                            <Input placeholder="John" label="Name" id="post_name"/>  
+                            <Input placeholder="Doe" label="Surname" id="post_surname"/>  
                         </div>
-                        <Input type="email" placeholder="johndoe@gmail.com" label="Email" id="put_email"/>
+                        <Input type="email" placeholder="johndoe@gmail.com" label="Email" id="post_email"/>
                         <Button type="submit" size="sm">{title}</Button>  
                     </motion.form> 
             }
             {
                 type === "put" &&
-                    <motion.form {...formVariants} className="flex flex-col gap-4">
+                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
                         <Input placeholder="6a398fwar83l4kazn34" label="ID" id="put"/>  
                         <div className="flex flex-col sm:flex-row gap-2">
                             <Input placeholder="John" label="Name" id="put_name"/>  
@@ -59,7 +78,7 @@ export const EndpointForm = ({ type="get", title }) => {
             }
             {
                 type === "delete" && 
-                    <motion.form {...formVariants} className="flex flex-col gap-4">
+                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
                         <Input placeholder="6a398fwar83l4kazn34" label="ID" id="delete"/>
                         <Button type="submit" size="sm">{title}</Button>
                     </motion.form>
