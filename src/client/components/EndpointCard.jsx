@@ -19,7 +19,7 @@ export const EndpointCard = ({ type="get", title, description }) => {
                     <div className="flex flex-col gap-4 max-w-[350px]">
                         <div className="flex justify-between items-center gap-6">
                             <div className="flex flex-col gap-2 max-w-[350px]">
-                                <h1 className="text-xl text-primary-500 font-bold">{title}</h1>
+                                <h1 className="text-xl text-primary-500 dark:text-secondary-500 font-bold">{title}</h1>
                                 <p className="text-sm text-primary-200">{description}</p>
                             </div>
                             <div className="flex flex-col items-center gap-4">
