@@ -1,9 +1,9 @@
-import { motion } from "framer-motion"
+import { GetForm } from "./GetForm"
+import { DeleteForm } from "./DeleteForm"
+import { PostForm } from "./PostForm"
+import { PutForm } from "./PutForm"
 
-import { Button } from "./Button"
-import { Input } from "./Input"
-
-export const EndpointForm = ({ type="get", title }) => {
+export const EndpointForm = ({ method="get", title }) => {
     const formVariants = {
         initial: {
             height: 0,
@@ -45,43 +45,17 @@ export const EndpointForm = ({ type="get", title }) => {
 
     return (
         <>
-        
             {
-                type === "get" && 
-                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
-                        <Button type="submit" size="sm">{title}</Button>
-                    </motion.form>
+                method === "get" && <GetForm title={title} variants={formVariants}/>
             }
             {
-                type === "post" && 
-                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
-                        <Input placeholder="6a398fwar83l4kazn34" label="ID" id="put"/>  
-                        <div className="flex flex-col sm:flex-row gap-2">
-                            <Input placeholder="John" label="Name" id="post_name"/>  
-                            <Input placeholder="Doe" label="Surname" id="post_surname"/>  
-                        </div>
-                        <Input type="email" placeholder="johndoe@gmail.com" label="Email" id="post_email"/>
-                        <Button type="submit" size="sm">{title}</Button>  
-                    </motion.form> 
+                method === "delete" && <DeleteForm title={title} variants={formVariants}/>
             }
             {
-                type === "put" &&
-                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
-                        <Input placeholder="6a398fwar83l4kazn34" label="ID" id="put"/>  
-                        <div className="flex flex-col sm:flex-row gap-2">
-                            <Input placeholder="John" label="Name" id="put_name"/>  
-                            <Input placeholder="Doe" label="Surname" id="put_surname"/>  
-                        </div>
-                        <Input type="email" placeholder="johndoe@gmail.com" label="Email" id="put_email"/>
-                        <Button type="submit" size="sm">{title}</Button>
-                    </motion.form> 
+                method === "post" && <PostForm title={title} variants={formVariants}/>
             }
             {
-                type === "delete" && 
-                    <motion.form {...formVariants} className="flex flex-col gap-4 overflow-hidden">
-                        <Input placeholder="6a398fwar83l4kazn34" label="ID" id="delete"/>
-                        <Button type="submit" size="sm">{title}</Button>
-                    </motion.form>
+                method === "put" && <PutForm title={title} variants={formVariants}/>
             }
         </>
     )

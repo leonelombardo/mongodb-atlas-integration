@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Toaster } from "react-hot-toast"
 import { BrowserRouter as Router } from "react-router-dom"
 
 import { AnimatedRoutes } from "./AnimatedRoutes"
@@ -15,6 +16,7 @@ export const App = () => {
     <>
       <Router>
         <AnimatedRoutes/>
+        <Toaster/>
       </Router>
     </>
   )

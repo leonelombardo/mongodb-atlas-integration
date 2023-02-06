@@ -4,7 +4,7 @@ import { GoChevronDown } from "react-icons/go"
 
 import { EndpointForm } from "./EndpointForm"
 
-export const EndpointCard = ({ type="get", title, description }) => {
+export const EndpointCard = ({ method="get", title, description }) => {
     const [ showForm, setShowForm ] = useState(false)
 
     const handleShowForm = () => {
@@ -30,7 +30,7 @@ export const EndpointCard = ({ type="get", title, description }) => {
                         </div>
                         <AnimatePresence mode="wait">
                             {
-                                showForm && <EndpointForm type={type} title={title}/>
+                                showForm && <EndpointForm method={method} title={title}/>
                             }
                         </AnimatePresence>
                     </div>
